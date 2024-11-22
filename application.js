@@ -1,16 +1,14 @@
 'use strict'
 
 var express = require("express")
-var bodyParser = require("body-parser");
 var routes = require('./routes/routes');
+const cors = require('cors');
+const {json} = require("express");
 
-var application = express();
+const application = express();
 
-application.use(
-    bodyParser.urlencoded(
-        {extended:false}));
-
-application.use(bodyParser.json());
+application.use(cors());
+application.use(json());
 application.use(routes);
 
 module.exports = application;

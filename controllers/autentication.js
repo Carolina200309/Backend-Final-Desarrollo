@@ -5,7 +5,7 @@ var token = require("../helpers/autentication");
 var bcrypt = require("bcryptjs");
 
 function registrarUsuario(req, resp){
-
+    console.log("Registrando usuario");
     var parametros  = req.body;
     var salt = bcrypt.genSaltSync(10);
 
@@ -34,7 +34,7 @@ function iniciarSesion ( req, resp){
     var parametros = req.body;
 
     var usuarioIngresado = parametros.usuario;
-    var contraseñaIngresado = parametros.contraseña;
+    var contraseñaIngresado = parametros.password;
 
     Usuario.findOne({usuario: usuarioIngresado}).then(
         (usuarioEncontrado) => {

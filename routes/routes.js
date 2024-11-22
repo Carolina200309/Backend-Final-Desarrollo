@@ -3,7 +3,6 @@
 var express = require('express');
 var reseñasController = require('../controllers/reseñas');
 var token = require('../helpers/autentication');
-const usuarios = require('../models/usuarios');
 var authenticationController = require("../controllers/autentication");
 
 var routes = express.Router();
@@ -28,7 +27,6 @@ routes.get('/api/resenas',
     token.validarToken,
     reseñasController.consultarReseñas
 );
-
 routes.post('/api/usuario',
     authenticationController.registrarUsuario
 );
